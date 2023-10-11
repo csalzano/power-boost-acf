@@ -52,7 +52,7 @@ if ( class_exists( 'ACF_Admin_Tool' ) ) {
 				array(
 					'label'   => __( 'Type', 'power-boost-acf' ),
 					'type'    => 'radio',
-					'name'    => 'key_type',
+					'name'    => 'key_type_blegh',
 					'layout'  => 'horizontal',
 					'choices' => array(
 						'field' => __( 'Field', 'power-boost-acf' ),
@@ -65,7 +65,7 @@ if ( class_exists( 'ACF_Admin_Tool' ) ) {
 				array(
 					'label'  => __( 'Key', 'power-boost-acf' ),
 					'type'   => 'text',
-					'name'   => 'generated_key',
+					'name'   => 'generated_key_blegh',
 					'prefix' => false,
 				)
 			);
