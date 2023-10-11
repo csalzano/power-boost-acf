@@ -9,7 +9,8 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Plugin Name: Power Boost for ACF
- * Description: Add-on for Advanced Custom Fields. Features I cannot live without.
+ * Description: Add-on for Advanced Custom Fields. ACF features I cannot live without.
+ * Plugin URI: https://github.com/csalzano/power-boost-acf
  * Author: Corey Salzano
  * Author URI: https://breakfastco.xyz/
  * Version 1.0.0

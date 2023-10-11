@@ -1,6 +1,6 @@
-# power-boost-acf
+# Power Boost for ACF
 
-Add-on for Advanced Custom Fields. Features I cannot live without.
+Add-on for Advanced Custom Fields. ACF features I cannot live without.
 
 ## FEATURES
 
