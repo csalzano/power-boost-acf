@@ -32,11 +32,11 @@ class ACFPB_Tools_Loader {
 	 * @return void
 	 */
 	public function add() {
-		include_once __DIR__ . '/class-acfpb-tool-local-groups.php';
-		acf_register_admin_tool( 'ACFPB_Tool_Local_Groups' );
-
 		include_once __DIR__ . '/class-acfpb-tool-key-generator.php';
 		acf_register_admin_tool( 'ACFPB_Tool_Key_Generator' );
+
+		include_once __DIR__ . '/class-acfpb-tool-local-groups.php';
+		acf_register_admin_tool( 'ACFPB_Tool_Local_Groups' );
 	}
 
 	/**
