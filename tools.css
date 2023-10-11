@@ -1,4 +1,6 @@
-.post-type-acf-field-group #acf-admin-tool-key-generator h2::before {
+/* Icons next to Tool titles */
+.post-type-acf-field-group #acf-admin-tool-key-generator h2::before,
+.post-type-acf-field-group #acf-admin-tool-local-groups h2::before {
 	content: "";
 	display: inline-block;
 	width: 20px;
@@ -16,9 +18,20 @@
 	/* mask-image: url("https://linode.test/wp-content/plugins/power-boost-acf/images/icon-stars.svg"); */
 	mask-image: url("images/icon-stars.svg");
 }
-.post-type-acf-field-group #acf-admin-tool-key-generator h2{
+.post-type-acf-field-group #acf-admin-tool-key-generator h2,
+.post-type-acf-field-group #acf-admin-tool-local-groups h2 {
 	display: inline-flex;
 	justify-content: flex-start;
 	align-content: stretch;
 	align-items: center;
+}
+
+/* List columns in Local Groups checkboxes */
+#acf-admin-tool-local-groups ul{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+#acf-admin-tool-local-groups ul li {
+	flex: 0 1 33.33%;
 }

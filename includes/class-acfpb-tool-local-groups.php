@@ -20,8 +20,6 @@ if ( class_exists( 'ACF_Admin_Tool' ) ) {
 		 *  @return  void
 		 */
 		public function initialize() {
-
-			// vars.
 			$this->name  = 'local-groups';
 			$this->title = __( 'Local Groups', 'power-boost-acf' );
 		}
@@ -32,60 +30,49 @@ if ( class_exists( 'ACF_Admin_Tool' ) ) {
 		 *  @return  void
 		 */
 		public function html() {
-
+			if ( ! wp_script_is( 'acfpb-tools' ) ) {
+				wp_enqueue_style( 'acfpb-tools' );
+			}
 			// Take any PHP loaded group and bring it into the editor.
-			$groups = acf_get_local_field_groups()
-
-			?><p>
-			<?php
-
-				printf(
-					'<p>%s</p>',
-					esc_html__( 'Save local field groups defined in PHP to the database so they can be edited in the dashboard.', 'power-boost-acf' )
-				);
-
+			acf_enable_filter( 'local' );
+			$field_groups = acf_get_local_field_groups();
 			?>
-			</p><div class="acf-fields">
+		<div class="acf-postbox-header">
+			<h2 class="acf-postbox-title"><?php esc_html_e( 'Local Groups', 'power-boost-acf' ); ?></h2>
+			<div class="acf-tip"><i tabindex="0" class="acf-icon acf-icon-help acf-js-tooltip" title="<?php esc_attr_e( 'Save local field groups defined in PHP to the database so they can be edited in the dashboard. Provided by Power Boost for ACF.', 'power-boost-acf' ); ?>"></i></div>
+		</div>
+		<div class="acf-postbox-inner">
+			<div class="acf-fields">
 			<?php
 
-			acf_render_field_wrap(
-				array(
-					'label'   => __( 'Type', 'power-boost-acf' ),
-					'type'    => 'radio',
-					'name'    => 'key_type_blegh',
-					'layout'  => 'horizontal',
-					'choices' => array(
-						'field' => __( 'Field', 'power-boost-acf' ),
-						'group' => __( 'Group', 'power-boost-acf' ),
-					),
-				)
-			);
+			// Select Field Groups.
+			$choices      = array();
+			//$field_groups = acf_get_internal_post_type_posts( 'acf-field-group' );
+
+			if ( $field_groups ) {
+				foreach ( $field_groups as $field_group ) {
+					$choices[ $field_group['key'] ] = esc_html( $field_group['title'] );
+				}
+			}
 
 			acf_render_field_wrap(
 				array(
-					'label'  => __( 'Key', 'power-boost-acf' ),
-					'type'   => 'text',
-					'name'   => 'generated_key_blegh',
-					'prefix' => false,
+					'label'   => __( 'Select Field Groups', 'acf' ),
+					'type'    => 'checkbox',
+					'name'    => 'keys',
+					'prefix'  => false,
+					//'value'   => $selected,
+					'toggle'  => true,
+					'choices' => $choices,
 				)
 			);
 
 			?>
 			</div>
-			<script type="text/javascript">
-				function generate_key()
-				{
-					var radios = document.getElementsByName('key_type');
-					for(i = 0; i < radios.length; i++) {
-						if(radios[i].checked) {
-							document.getElementById('generated_key').value = acf.uniqid(radios[i].value + '_');
-						}
-					}					
-				}
-			</script>
 			<p class="acf-submit">
-				<button type="button" name="action" class="button button-primary" value="generate" onclick="generate_key()"><?php esc_html_e( 'Generate Key', 'power-boost-acf' ); ?></button>
+				<button type="button" name="action" class="acf-btn acf-button-primary" value="localize"><?php esc_html_e( 'Save to Database', 'power-boost-acf' ); ?></button>
 			</p>
+		</div>
 			<?php
 
 		}
