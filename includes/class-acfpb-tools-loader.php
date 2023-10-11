@@ -21,6 +21,8 @@ class ACFPB_Tools_Loader {
 		add_action( 'acf/include_admin_tools', array( $this, 'add' ), 11 );
 		// Backwards compatibility, the hook was renamed.
 		add_action( 'load-custom-fields_page_acf-tools', array( $this, 'add' ), 11 );
+
+		add_action( 'admin_enqueue_scripts', array( $this, 'register_styles' ) );
 	}
 
 	/**
@@ -30,10 +32,26 @@ class ACFPB_Tools_Loader {
 	 * @return void
 	 */
 	public function add() {
-		include_once dirname( __FILE__ ) . '/class-acfpb-tool-local-groups.php';
+		include_once __DIR__ . '/class-acfpb-tool-local-groups.php';
 		acf_register_admin_tool( 'ACFPB_Tool_Local_Groups' );
 
-		//include_once dirname( __FILE__ ) . '/class-acfpb-tool-key-generator.php';
-		//acf_register_admin_tool( 'ACFPB_Tool_Key_Generator' );
+		include_once __DIR__ . '/class-acfpb-tool-key-generator.php';
+		acf_register_admin_tool( 'ACFPB_Tool_Key_Generator' );
+	}
+
+	/**
+	 * register_styles
+	 *
+	 * @return void
+	 */
+	public function register_styles() {
+		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		// CSS for our tools at ACF → Tools.
+		wp_register_style(
+			'acfpb-tools',
+			plugins_url( "tools{$min}.css", ACF_POWER_BOOST_PLUGIN_PATH ),
+			array(),
+			ACF_POWER_BOOST_PLUGIN_VERSION
+		);
 	}
 }
