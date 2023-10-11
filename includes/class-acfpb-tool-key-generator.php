@@ -29,7 +29,9 @@ if ( class_exists( 'ACF_Admin_Tool' ) ) {
 		 *  @return  void
 		 */
 		public function html() {
-			wp_enqueue_style( 'acfpb-tools' );
+			if ( ! wp_script_is( 'acfpb-tools' ) ) {
+				wp_enqueue_style( 'acfpb-tools' );
+			}
 			?>
 		<div class="acf-postbox-header">
 			<h2 class="acf-postbox-title"><?php esc_html_e( 'Key Generator', 'power-boost-acf' ); ?></h2>
