@@ -42,6 +42,6 @@ function acfpb_add_group_id_to_footer( $text ) {
 	return preg_replace( '/\.<\/span>$/', ' ' . $post->post_name . '.</span>', $text );
 }
 
-require_once dirname( __FILE__ ) . '/includes/class-acfpb-tools-loader.php';
+require_once __DIR__ . '/includes/class-acfpb-tools-loader.php';
 $tools = new ACFPB_Tools_Loader();
 $tools->add_hooks();
