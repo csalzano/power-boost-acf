@@ -33,8 +33,12 @@ add_filter( 'admin_footer_text', 'acfpb_add_group_id_to_footer' );
  * @return string
  */
 function acfpb_add_group_id_to_footer( $text ) {
+	$post_type = 'acf-field-group';
+	if ( ! acf_is_screen( $post_type ) ) {
+		return;
+	}
 	global $post_type_object;
-	if ( empty( $post_type_object->name ) || 'acf-field-group' !== $post_type_object->name ) {
+	if ( empty( $post_type_object->name ) || $post_type !== $post_type_object->name ) {
 		return $text;
 	}
 	global $post;
