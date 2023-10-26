@@ -34,7 +34,7 @@ add_filter( 'admin_footer_text', 'acfpb_add_group_id_to_footer' );
  */
 function acfpb_add_group_id_to_footer( $text ) {
 	$post_type = 'acf-field-group';
-	if ( ! acf_is_screen( $post_type ) ) {
+	if ( ! function_exists( 'acf_is_screen' ) || ! acf_is_screen( $post_type ) ) {
 		return;
 	}
 	global $post_type_object;
