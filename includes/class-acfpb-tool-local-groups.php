@@ -114,10 +114,9 @@ if ( class_exists( 'ACF_Admin_Tool' ) ) {
 					$choices[ $field_group['key'] ] = esc_html( $field_group['title'] );
 				}
 			}
-
 			acf_render_field_wrap(
 				array(
-					'label'   => __( 'Select Field Groups', 'acf' ),
+					'label'   => $field_groups ? __( 'Select Field Groups', 'acf' ) : __( 'No Local Field Groups found', 'acf' ),
 					'type'    => 'checkbox',
 					'name'    => 'keys',
 					'prefix'  => false,
