@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
  * Plugin URI: https://github.com/csalzano/power-boost-acf
  * Author: Corey Salzano
  * Author URI: https://breakfastco.xyz/
- * Version 1.0.1
+ * Version 1.0.2
  * Text Domain: power-boost-acf
  * License: GPLv2
  */
@@ -22,7 +22,7 @@ if ( ! defined( 'ACF_POWER_BOOST_PLUGIN_PATH' ) ) {
 	define( 'ACF_POWER_BOOST_PLUGIN_PATH', __FILE__ );
 }
 if ( ! defined( 'ACF_POWER_BOOST_PLUGIN_VERSION' ) ) {
-	define( 'ACF_POWER_BOOST_PLUGIN_VERSION', '1.0.1' );
+	define( 'ACF_POWER_BOOST_PLUGIN_VERSION', '1.0.2' );
 }
 
 add_filter( 'admin_footer_text', 'acfpb_add_group_id_to_footer' );
