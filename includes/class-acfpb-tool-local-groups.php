@@ -157,7 +157,13 @@ if ( class_exists( 'ACF_Admin_Tool' ) ) {
 
 			// Save each field group to the database.
 			foreach ( $exportable as $field_group ) {
-				acf_update_field_group( $field_group );
+				$field_group = acf_update_field_group( $field_group );
+				// Save each field.
+				foreach ( $field_group['fields'] as $field ) {
+					$field           = acf_get_field( $field['key'] );
+					$field['parent'] = $field_group['ID'];
+					acf_update_field( $field );
+				}
 			}
 		}
 	}
