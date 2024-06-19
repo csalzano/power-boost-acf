@@ -1,13 +1,5 @@
 <?php
 /**
- * Power Boost for Advanced Custom Fields
- *
-
- */
-
-defined( 'ABSPATH' ) || exit;
-
-/**
  * Plugin Name: Power Boost for ACF
  * Description: Add-on for Advanced Custom Fields. ACF features I cannot live without.
  * Plugin URI: https://github.com/csalzano/power-boost-acf
@@ -20,6 +12,8 @@ defined( 'ABSPATH' ) || exit;
  * @author Corey Salzano <csalzano@duck.com>
  * @package ACF_Power_Boost
  */
+
+defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'ACF_POWER_BOOST_PLUGIN_PATH' ) ) {
 	define( 'ACF_POWER_BOOST_PLUGIN_PATH', __FILE__ );
