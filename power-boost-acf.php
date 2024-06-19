@@ -2,7 +2,7 @@
 /**
  * Power Boost for Advanced Custom Fields
  *
- * @package ACF_Power_Boost
+
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -16,6 +16,9 @@ defined( 'ABSPATH' ) || exit;
  * Version 1.0.3
  * Text Domain: power-boost-acf
  * License: GPLv2
+ *
+ * @author Corey Salzano <csalzano@duck.com>
+ * @package ACF_Power_Boost
  */
 
 if ( ! defined( 'ACF_POWER_BOOST_PLUGIN_PATH' ) ) {
